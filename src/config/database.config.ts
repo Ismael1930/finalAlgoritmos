@@ -5,8 +5,8 @@ export const getDatabaseConfig = (
   configService: ConfigService,
 ): TypeOrmModuleOptions => {
   
-  const databaseUrl = configService.get<string>('DATABASE_URL');
-   const nodeEnv = configService.get<string>('NODE_ENV');
+  const databaseUrl = configService.get<string>('DATABASE_URL') || process.env.DATABASE_URL;
+  const nodeEnv = configService.get<string>('NODE_ENV') || process.env.NODE_ENV;
   
   console.log('=== DATABASE CONFIG DEBUG ===');
   console.log('NODE_ENV:', nodeEnv);

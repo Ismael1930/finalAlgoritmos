@@ -11,7 +11,6 @@ import { getDatabaseConfig } from './config/database.config';
     ConfigModule.forRoot({
       isGlobal: true,
       envFilePath: '.env',
-      ignoreEnvFile: process.env.NODE_ENV === 'production',
     }),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
