@@ -6,6 +6,12 @@ export const getDatabaseConfig = (
 ): TypeOrmModuleOptions => {
   
   const databaseUrl = configService.get<string>('DATABASE_URL');
+   const nodeEnv = configService.get<string>('NODE_ENV');
+  
+  console.log('=== DATABASE CONFIG DEBUG ===');
+  console.log('NODE_ENV:', nodeEnv);
+  console.log('DATABASE_URL exists:', !!databaseUrl);
+  console.log('DATABASE_URL length:', databaseUrl?.length || 0);
 
   if (databaseUrl) {
     // Configuración para Railway (Producción)
